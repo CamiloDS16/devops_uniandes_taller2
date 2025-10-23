@@ -3,7 +3,18 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - echo "pre-build phase running - proyecto DevOps con Flask"
       - pip install -r requirements.txt
+
+  build:
+    commands:
+      - echo "iniciando fase de build"
+      - pytest tests/ --disable-warnings -q
+
+  post_build:
+    commands:
+      - echo "build finalizado exitosamente"
+
 artifacts:
   files:
     - '**/*'
